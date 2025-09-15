@@ -549,8 +549,8 @@ function roundToNearestInteger(number) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  return Math.trunc(number);
 }
 
 /**
@@ -565,8 +565,11 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return [x1, x2, x3].reduce((acc, value) => {
+    const pow = Number(value.toString().split('.')[1]?.length) || 0;
+    return (acc * 10 ** pow + value * 10 ** pow) / 10 ** pow;
+  }, 0);
 }
 
 /**
